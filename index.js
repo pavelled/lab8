@@ -1,27 +1,22 @@
-$(function(){
-    var from = $('#from');
-    var to = $('#to');
-    var func = $('#func');
-    var btn = $('#plot_btn');
-    var plot = $('#plot');
+$(function () {
+    let from = $('#from');
+    let to = $('#to');
+    let func = $('#func');
+    let btn = $('#plot_btn');
+    let plot = $('#plot');
 
-    btn.click(function(e){
+    btn.click(function (e) {
         e.preventDefault();
 
-        var from_val = parseFloat(from.val());
-        var to_val = parseFloat(to.val());
+        let from_val = parseFloat(from.val());
+        let to_val = parseFloat(to.val());
 
-        //setInterval(function(){
-            from_val += 0.1;
-            to_val += 0.1;
-            var values = []
+        let values = []
 
-            for(var x = from_val; x <= to_val; x += 0.1){
-                values.push([x, eval(func.val())])
-            }
+        for (let x = from_val; x <= to_val; x += 0.1) {
+            values.push([x, eval(func.val())])
+        }
 
-            $.plot(plot, [values], {})
-        //}, 20);
-
+        $.plot(plot, [values], {})
     });
 })
